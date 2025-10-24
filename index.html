@@ -88,32 +88,114 @@
       cursor: pointer;
       font-weight: bold;
     }
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .cart-sidebar.open { right: 0; }
+    .cart-sidebar h2 { margin-top: 0; font-size: 20px; }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+    .cart-item button {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .cart-total {
+      margin-top: 10px;
+      font-weight: bold;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+    .cart-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-clear {
+      background: #ff4d4d;
+      color: white;
+    }
+    .btn-order {
+      background: #25d366;
+      color: white;
+    }
+    .btn-clear, .btn-order {
+      font-size: 16px;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .option-label {
+      margin-top: 12px;
+      font-weight: bold;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .item { width: 100%; }
+      .cart-sidebar { width: 100%; }
+      .cart-btn { top: 10px; right: 10px; padding: 10px; }
+    }
   </style>
 </head>
 <body>
 
 <header><span>🍔</span> DISTRITO - Hamburguesas Gourmet</header>
-<button class="cart-btn">🛒 Ver carrito</button>
+<button class="cart-btn" onclick="toggleCart()">🛒 Ver carrito (<span id="contador">0</span>)</button>
 
 <h2 class="section-title">🍔 Hamburguesas</h2>
 <div class="container">
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1601050690093-3f5ecf8249f5?auto=format&fit=crop&w=800" alt="Hamburguesa Clásica" />
+    <img src="https://images.unsplash.com/photo-1601050690093-3f5ecf8249f5?w=800" alt="Hamburguesa Clásica" />
     <div class="item-content">
       <h3>Hamburguesa Clásica</h3>
       <p>Carne 100% vacuna, queso cheddar, lechuga y tomate</p>
       <p><strong>Bs 35.00</strong></p>
-      <button>Agregar</button>
+      <button onclick="agregarAlCarrito('Hamburguesa Clásica', 35)">Agregar</button>
     </div>
   </div>
 
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1606755962778-7f78f11b03b3?auto=format&fit=crop&w=800" alt="Hamburguesa BBQ" />
+    <img src="https://images.unsplash.com/photo-1606755962778-7f78f11b03b3?w=800" alt="Hamburguesa BBQ" />
     <div class="item-content">
       <h3>Hamburguesa BBQ</h3>
       <p>Carne, cebolla caramelizada, bacon, salsa BBQ</p>
       <p><strong>Bs 42.00</strong></p>
-      <button>Agregar</button>
+      <button onclick="agregarAlCarrito('Hamburguesa BBQ', 42)">Agregar</button>
     </div>
   </div>
 </div>
@@ -121,12 +203,12 @@
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1557167756-4f5e940bc5f8?auto=format&fit=crop&w=800" alt="Papas Fritas" />
+    <img src="https://images.unsplash.com/photo-1557167756-4f5e940bc5f8?w=800" alt="Papas Fritas" />
     <div class="item-content">
       <h3>Papas Fritas</h3>
       <p>Crocantes y doradas, porción individual</p>
       <p><strong>Bs 10.00</strong></p>
-      <button>Agregar</button>
+      <button onclick="agregarAlCarrito('Papas Fritas', 10)">Agregar</button>
     </div>
   </div>
 </div>
@@ -134,15 +216,136 @@
 <h2 class="section-title">🥤 Bebidas</h2>
 <div class="container">
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1583337130417-3346a1e4a1c1?auto=format&fit=crop&w=800" alt="Coca-Cola" />
+    <img src="https://images.unsplash.com/photo-1583337130417-3346a1e4a1c1?w=800" alt="Coca-Cola" />
     <div class="item-content">
       <h3>Coca-Cola 500ml</h3>
       <p>Refresco tradicional para acompañar tu combo</p>
       <p><strong>Bs 8.00</strong></p>
-      <button>Agregar</button>
+      <button onclick="agregarAlCarrito('Coca-Cola 500ml', 8)">Agregar</button>
     </div>
   </div>
 </div>
 
+<!-- Carrinho -->
+<div class="cart-sidebar" id="cartSidebar">
+  <button class="close-btn" onclick="toggleCart()">✖</button>
+  <h2>🛒 Tu carrito</h2>
+  <div id="carrito" class="cart-items"><p>No hay productos aún.</p></div>
+  <div class="cart-total" id="carrito-total"></div>
+
+  <label class="option-label">Entrega:</label>
+  <label><input type="radio" name="entrega" value="domicilio" checked onchange="toggleDireccion(true)"> A domicilio</label>
+  <label><input type="radio" name="entrega" value="retiro" onchange="toggleDireccion(false)"> Retiro en local</label>
+
+  <div id="direccion-container">
+    <label class="option-label">Dirección:</label>
+    <input type="text" id="direccion">
+  </div>
+
+  <label class="option-label">Método de pago:</label>
+  <select id="pago">
+    <option value="efectivo">Efectivo</option>
+    <option value="QR">QR</option>
+  </select>
+
+  <label class="option-label">Nota:</label>
+  <textarea id="nota"></textarea>
+
+  <label class="option-label">Cupón de descuento:</label>
+  <input type="text" id="cupon">
+
+  <div class="cart-actions">
+    <button class="btn-clear" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
+    <button class="btn-order" onclick="enviarPedido()">📤 Enviar por WhatsApp</button>
+  </div>
+</div>
+
+<script>
+  let carrito = [];
+
+  function toggleCart() {
+    document.getElementById("cartSidebar").classList.toggle("open");
+  }
+
+  function agregarAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+    document.getElementById("cartSidebar").classList.add("open");
+  }
+
+  function actualizarCarrito() {
+    const contenedor = document.getElementById("carrito");
+    const totalDiv = document.getElementById("carrito-total");
+    const contador = document.getElementById("contador");
+    contenedor.innerHTML = "";
+    let total = 0;
+
+    if (carrito.length === 0) {
+      contenedor.innerHTML = "<p>No hay productos aún.</p>";
+      totalDiv.innerHTML = "";
+    } else {
+      carrito.forEach((item, index) => {
+        total += item.precio;
+        contenedor.innerHTML += `
+          <div class="cart-item">
+            <span>${item.nombre}</span>
+            <span>Bs ${item.precio.toFixed(2)}</span>
+            <button onclick="removerItem(${index})">🗑</button>
+          </div>`;
+      });
+
+      let cupom = document.getElementById("cupon").value.trim().toUpperCase();
+      let desconto = cupom === "DESCUENTO10" ? total * 0.10 : 0;
+      totalDiv.innerHTML = `Total: Bs ${(total - desconto).toFixed(2)} ${desconto ? "(con descuento aplicado)" : ""}`;
+    }
+
+    contador.textContent = carrito.length;
+  }
+
+  function removerItem(i) {
+    carrito.splice(i, 1);
+    actualizarCarrito();
+  }
+
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+  }
+
+  function toggleDireccion(show) {
+    document.getElementById("direccion-container").style.display = show ? "block" : "none";
+  }
+
+  function enviarPedido() {
+    if (carrito.length === 0) return alert("El carrito está vacío.");
+
+    const entrega = document.querySelector('input[name="entrega"]:checked').value;
+    const direccion = document.getElementById("direccion").value.trim();
+    const metodo = document.getElementById("pago").value;
+    const nota = document.getElementById("nota").value.trim();
+    const cupon = document.getElementById("cupon").value.trim().toUpperCase();
+
+    let mensaje = "¡Hola! Quiero hacer un pedido en DISTRITO:%0A";
+    let total = 0;
+
+    carrito.forEach(item => {
+      mensaje += `- ${item.nombre}: Bs ${item.precio.toFixed(2)}%0A`;
+      total += item.precio;
+    });
+
+    let descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
+    mensaje += `%0ATotal: Bs ${(total - descuento).toFixed(2)}`;
+    if (cupon) mensaje += `%0ACupón: ${cupon}`;
+    mensaje += `%0AEntrega: ${entrega}`;
+    if (entrega === "domicilio" && direccion) mensaje += `%0ADirección: ${direccion}`;
+    mensaje += `%0APago: ${metodo}`;
+    if (nota) mensaje += `%0ANota: ${nota}`;
+
+    const tel = "59171234567"; // Altere para número real
+    window.open(`https://wa.me/${tel}?text=${mensaje}`, '_blank');
+  }
+
+  window.onload = () => toggleDireccion(true);
+</script>
 </body>
 </html>

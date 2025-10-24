@@ -180,7 +180,7 @@
 <h2 class="section-title">🍔 Hamburguesas</h2>
 <div class="container">
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1601050690093-3f5ecf8249f5?w=800" alt="Hamburguesa Clásica" />
+    <img src="https://source.unsplash.com/800x600/?burger" alt="Hamburguesa Clásica" />
     <div class="item-content">
       <h3>Hamburguesa Clásica</h3>
       <p>Carne 100% vacuna, queso cheddar, lechuga y tomate</p>
@@ -190,7 +190,7 @@
   </div>
 
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1606755962778-7f78f11b03b3?w=800" alt="Hamburguesa BBQ" />
+    <img src="https://source.unsplash.com/800x600/?bbq,burger" alt="Hamburguesa BBQ" />
     <div class="item-content">
       <h3>Hamburguesa BBQ</h3>
       <p>Carne, cebolla caramelizada, bacon, salsa BBQ</p>
@@ -203,7 +203,7 @@
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1557167756-4f5e940bc5f8?w=800" alt="Papas Fritas" />
+    <img src="https://source.unsplash.com/800x600/?fries" alt="Papas Fritas" />
     <div class="item-content">
       <h3>Papas Fritas</h3>
       <p>Crocantes y doradas, porción individual</p>
@@ -216,7 +216,7 @@
 <h2 class="section-title">🥤 Bebidas</h2>
 <div class="container">
   <div class="item">
-    <img src="https://images.unsplash.com/photo-1583337130417-3346a1e4a1c1?w=800" alt="Coca-Cola" />
+    <img src="https://source.unsplash.com/800x600/?coca-cola" alt="Coca-Cola" />
     <div class="item-content">
       <h3>Coca-Cola 500ml</h3>
       <p>Refresco tradicional para acompañar tu combo</p>
@@ -341,11 +341,12 @@
     mensaje += `%0APago: ${metodo}`;
     if (nota) mensaje += `%0ANota: ${nota}`;
 
-    const tel = "59171234567"; // Altere para número real
+    const tel = "59171234567"; // Altere para o número do seu WhatsApp
     window.open(`https://wa.me/${tel}?text=${mensaje}`, '_blank');
   }
 
   window.onload = () => toggleDireccion(true);
 </script>
+
 </body>
 </html>

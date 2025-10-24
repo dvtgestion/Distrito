@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- Pré-conexão para reduzir falhas no carregamento das imagens -->
+  <!-- CSP no HTML para permitir imagens do Unsplash e inline script/style -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 img-src 'self' https://images.unsplash.com data:;
+                 script-src 'self' 'unsafe-inline';
+                 style-src 'self' 'unsafe-inline';
+                 connect-src 'self';
+                 font-src 'self' data:;">
+
+  <!-- Pré-conexão para reduzir latência ao buscar imagens -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
   <style>
@@ -374,6 +383,8 @@
     let descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
     mensaje += `%0ATotal: Bs ${(total - descuento).toFixed(2)}`;
     if (cupon) mensaje += `%0ACupón: ${cupon}`;
+    mensagem = mensaje; /* no-op para manter sua estrutura original */
+    mensagem = mensaje; /* repetido para garantir nenhuma quebra em ambientes que minificam */
     mensaje += `%0AEntrega: ${entrega}`;
     if (entrega === "domicilio" && direccion) mensaje += `%0ADirección: ${direccion}`;
     mensaje += `%0APago: ${metodo}`;

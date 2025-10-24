@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- CSP no HTML para permitir imagens do Unsplash e inline script/style -->
+  <!-- CSP permitindo imagens do Pexels/Picsum/Unsplash/Drive e data: -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 img-src 'self' https://images.unsplash.com data:;
+                 img-src 'self' https://images.pexels.com https://picsum.photos https://images.unsplash.com https://drive.google.com https://lh3.googleusercontent.com data:;
                  script-src 'self' 'unsafe-inline';
                  style-src 'self' 'unsafe-inline';
                  connect-src 'self';
                  font-src 'self' data:;">
 
-  <!-- Pré-conexão para reduzir latência ao buscar imagens -->
+  <!-- Pré-conexões para reduzir latência de imagens -->
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
   <style>
@@ -72,26 +74,16 @@
       overflow: hidden;
       transition: transform 0.2s;
     }
-    .item:hover {
-      transform: scale(1.02);
-    }
+    .item:hover { transform: scale(1.02); }
     .item img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      display: block; /* garante bloco sem “sobras” inline */
+      display: block;
     }
-    .item-content {
-      padding: 15px;
-    }
-    .item-content h3 {
-      margin-top: 0;
-      font-size: 18px;
-    }
-    .item-content p {
-      margin: 6px 0;
-      font-size: 14px;
-    }
+    .item-content { padding: 15px; }
+    .item-content h3 { margin-top: 0; font-size: 18px; }
+    .item-content p { margin: 6px 0; font-size: 14px; }
     .item button {
       background: linear-gradient(to right, #ff6b00, #ff9500);
       color: white;
@@ -111,18 +103,15 @@
       background-color: white;
       box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
       padding: 20px;
-      transition: transform 0.3s ease; /* animação suave usando transform */
+      transition: transform 0.3s ease;
       z-index: 1000;
       display: flex;
       flex-direction: column;
       overflow-y: auto;
-      transform: translateX(100%);     /* FECHADO: fora da tela, sem “sobrar” no mobile */
+      transform: translateX(100%); /* fechado: fora da tela */
       will-change: transform;
     }
-    .cart-sidebar.open {
-      right: 0;
-      transform: translateX(0);        /* ABERTO */
-    }
+    .cart-sidebar.open { transform: translateX(0); } /* aberto */
     .cart-sidebar h2 { margin-top: 0; font-size: 20px; }
     .cart-item {
       display: flex;
@@ -149,14 +138,8 @@
       flex-direction: column;
       gap: 10px;
     }
-    .btn-clear {
-      background: #ff4d4d;
-      color: white;
-    }
-    .btn-order {
-      background: #25d366;
-      color: white;
-    }
+    .btn-clear { background: #ff4d4d; color: white; }
+    .btn-order { background: #25d366; color: white; }
     .btn-clear, .btn-order {
       font-size: 16px;
       font-weight: bold;
@@ -198,14 +181,15 @@
 
 <h2 class="section-title">🍔 Hamburguesas</h2>
 <div class="container">
+  <!-- Clásica -->
   <div class="item">
     <img
-      src="https://images.unsplash.com/photo-1601050690093-3f5ecf8249f5?w=800&auto=format&fit=crop&q=80"
+      src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
       alt="Hamburguesa Clásica"
       referrerpolicy="no-referrer"
       decoding="async"
       loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/800/450?random=11';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Hamburguesa Clásica</h3>
@@ -215,14 +199,15 @@
     </div>
   </div>
 
+  <!-- BBQ -->
   <div class="item">
     <img
-      src="https://images.unsplash.com/photo-1606755962778-7f78f11b03b3?w=800&auto=format&fit=crop&q=80"
+      src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
       alt="Hamburguesa BBQ"
       referrerpolicy="no-referrer"
       decoding="async"
       loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/800/450?random=12';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Hamburguesa BBQ</h3>
@@ -231,18 +216,36 @@
       <button onclick="agregarAlCarrito('Hamburguesa BBQ', 42)">Agregar</button>
     </div>
   </div>
+
+  <!-- Candango (novo item) -->
+  <div class="item">
+    <img
+      src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      alt="Hamburguesa Candango"
+      referrerpolicy="no-referrer"
+      decoding="async"
+      loading="lazy"
+      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/800/450?random=13';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
+    />
+    <div class="item-content">
+      <h3>Candango</h3>
+      <p>Pan de papa, carne (160g), lechuga, tomate, cebolla morada, pepinillos, queso cheddar, salsa de la casa</p>
+      <p><strong>Bs 40.00</strong></p>
+      <button onclick="agregarAlCarrito('Candango', 40)">Agregar</button>
+    </div>
+  </div>
 </div>
 
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
   <div class="item">
     <img
-      src="https://images.unsplash.com/photo-1557167756-4f5e940bc5f8?w=800&auto=format&fit=crop&q=80"
+      src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
       alt="Papas Fritas"
       referrerpolicy="no-referrer"
       decoding="async"
       loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/800/450?random=21';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Papas Fritas</h3>
@@ -257,12 +260,12 @@
 <div class="container">
   <div class="item">
     <img
-      src="https://images.unsplash.com/photo-1583337130417-3346a1e4a1c1?w=800&auto=format&fit=crop&q=80"
-      alt="Coca-Cola"
+      src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      alt="Coca-Cola 500ml"
       referrerpolicy="no-referrer"
       decoding="async"
       loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/800/450?random=22';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Coca-Cola 500ml</h3>
@@ -383,8 +386,6 @@
     let descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
     mensaje += `%0ATotal: Bs ${(total - descuento).toFixed(2)}`;
     if (cupon) mensaje += `%0ACupón: ${cupon}`;
-    mensagem = mensaje; /* no-op para manter sua estrutura original */
-    mensagem = mensaje; /* repetido para garantir nenhuma quebra em ambientes que minificam */
     mensaje += `%0AEntrega: ${entrega}`;
     if (entrega === "domicilio" && direccion) mensaje += `%0ADirección: ${direccion}`;
     mensaje += `%0APago: ${metodo}`;

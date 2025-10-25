@@ -514,8 +514,8 @@
     <div class="hint">Selecciona exactamente 3 sabores de la lista abajo.</div>
     <div class="choices" id="distritinhosList"></div>
     <div class="actions">
-      <button class="btn-cancel" onclick="fecharDistritinhos()">Cancelar</button>
-      <button class="btn-confirm" onclick="confirmarDistritinhos()">Confirmar</button>
+      <button class="btn-cancel" type="button" onclick="fecharDistritinhos()">Cancelar</button>
+      <button class="btn-confirm" type="button" onclick="confirmarDistritinhos()">Confirmar</button>
     </div>
   </div>
 </div>
@@ -646,22 +646,26 @@
   }
 
   function confirmarDistritinhos() {
-    const overlay = document.getElementById('distritinhosOverlay');
-    const selecionados = Array.from(overlay.querySelectorAll('input[type="checkbox"]:checked'))
-      .map(i => i.value);
+    try {
+      const selecionados = Array.from(document.querySelectorAll('#distritinhosOverlay input[type="checkbox"]:checked'))
+        .map(i => i.value);
 
-    if (selecionados.length !== 3) {
-      alert('Por favor, selecione exatamente 3 sabores.');
-      return;
+      if (selecionados.length !== 3) {
+        alert('Por favor, selecione exatamente 3 sabores.');
+        return;
+      }
+
+      const nome = `Distritinhos (${selecionados.join(', ')})`;
+      const preco = 60;
+
+      carrito.push({ nombre: nome, precio: preco });
+      atualizarCarrito();
+      fecharDistritinhos();
+      document.getElementById("cartSidebar").classList.add("open");
+    } catch (e) {
+      console.error(e);
+      alert('Ocorreu um erro ao confirmar os Distritinhos.');
     }
-
-    const nome = `Distritinhos (${selecionados.join(', ')})`;
-    const preco = 60;
-
-    carrito.push({ nombre: nome, precio: preco });
-    atualizarCarrito();
-    fecharDistritinhos();
-    document.getElementById("cartSidebar").classList.add("open");
   }
 </script>
 </body>

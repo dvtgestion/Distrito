@@ -5,19 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- CSP permitindo imagens do Pexels/Picsum/Unsplash e data: -->
+  <!-- Mantive a CSP e já permite data: (para SVG inline) -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 img-src 'self' https://images.pexels.com https://picsum.photos https://images.unsplash.com data:;
+                 img-src 'self' data:;
                  script-src 'self' 'unsafe-inline';
                  style-src 'self' 'unsafe-inline';
                  connect-src 'self';
                  font-src 'self' data:;">
-
-  <!-- Pré-conexões para reduzir latência de imagens -->
-  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
-  <link rel="preconnect" href="https://picsum.photos" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
   <style>
     * { box-sizing: border-box; }
@@ -111,10 +106,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       letter-spacing: 0.3px;
     }
-    .item.soldout button {
-      opacity: .55;
-      pointer-events: none;
-    }
+    .item.soldout button { opacity: .55; pointer-events: none; }
 
     .cart-sidebar {
       position: fixed;
@@ -130,10 +122,10 @@
       display: flex;
       flex-direction: column;
       overflow-y: auto;
-      transform: translateX(100%); /* fechado: fora da tela */
+      transform: translateX(100%);
       will-change: transform;
     }
-    .cart-sidebar.open { transform: translateX(0); } /* aberto */
+    .cart-sidebar.open { transform: translateX(0); }
     .cart-sidebar h2 { margin-top: 0; font-size: 20px; }
 
     /* ===== Carrinho: alinhamento profissional ===== */
@@ -170,7 +162,7 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ===== Ações do carrinho: centralizado e com espaçamento ===== */
+    /* ===== Ações do carrinho ===== */
     .cart-actions {
       margin-top: 24px;
       display: flex;
@@ -226,7 +218,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1001; /* acima do carrinho (1000) */
+      z-index: 1001;
       padding: 16px;
     }
     .modal {
@@ -239,10 +231,7 @@
       max-height: 80vh;
       overflow: auto;
     }
-    .modal h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
+    .modal h3 { margin: 0 0 10px; font-size: 18px; }
     .choices {
       display: grid;
       grid-template-columns: 1fr;
@@ -264,32 +253,15 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .qty span {
-      min-width: 20px;
-      text-align: center;
-      display: inline-block;
-    }
-    .modal .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-    }
+    .qty span { min-width: 20px; text-align: center; display: inline-block; }
+    .modal .actions { display: flex; gap: 10px; margin-top: 12px; }
     .modal .actions button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
+      flex: 1; padding: 10px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
     }
     .btn-cancel { background: #eee; }
     .btn-confirm { background: #ff6b00; color: #fff; }
     .btn-confirm[disabled] { opacity: .6; cursor: not-allowed; }
-    .modal .hint {
-      font-size: 12px;
-      color: #666;
-      margin-top: 4px;
-    }
+    .modal .hint { font-size: 12px; color: #666; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -299,17 +271,11 @@
 
 <h2 class="section-title">🍔 Hamburguesas</h2>
 <div class="container">
-  <!-- (REMOVIDOS: Hamburguesa Clásica e Hamburguesa BBQ) -->
-
   <!-- Candango -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff4e6' width='800' height='450'/><g transform='translate(100,110)'><ellipse cx='300' cy='60' rx='260' ry='60' fill='%23f5c16c'/><rect x='80' y='110' width='440' height='60' rx='20' fill='%238b4513'/><rect x='70' y='175' width='460' height='25' fill='%23cde8a5'/><rect x='100' y='205' width='400' height='40' rx='20' fill='%23d98b2b'/><ellipse cx='300' cy='260' rx='260' ry='60' fill='%23f5c16c'/></g></svg>"
       alt="Hamburguesa Candango"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/candango/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Candango</h3>
@@ -322,11 +288,8 @@
   <!-- Plano Piloto -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/plano-piloto/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff0da' width='800' height='450'/><g transform='translate(100,110)'><ellipse cx='300' cy='60' rx='260' ry='60' fill='%23f7c97a'/><rect x='80' y='110' width='440' height='60' rx='20' fill='%238b5a2b'/><rect x='70' y='175' width='460' height='25' fill='%23e1c77a'/><rect x='100' y='205' width='400' height='40' rx='20' fill='%23d98b2b'/><ellipse cx='300' cy='260' rx='260' ry='60' fill='%23f7c97a'/></g></svg>"
       alt="Hamburguesa Plano Piloto"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Plano Piloto</h3>
@@ -339,11 +302,8 @@
   <!-- Catedral -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/catedral/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23ffeedd' width='800' height='450'/><g transform='translate(120,120)'><ellipse cx='280' cy='50' rx='240' ry='50' fill='%23f7cc80'/><rect x='80' y='100' width='400' height='40' rx='12' fill='%23c7923a'/><rect x='60' y='145' width='440' height='24' fill='%23cde8a5'/><rect x='95' y='174' width='370' height='36' rx='16' fill='%23d9a76b'/><ellipse cx='280' cy='220' rx='240' ry='50' fill='%23f7cc80'/></g></svg>"
       alt="Hamburguesa Catedral"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Catedral</h3>
@@ -356,11 +316,8 @@
   <!-- Mané -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/mane/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff4e0' width='800' height='450'/><g transform='translate(110,115)'><ellipse cx='290' cy='55' rx='240' ry='55' fill='%23f2c370'/><rect x='70' y='105' width='420' height='52' rx='18' fill='%238b5a2b'/><rect x='60' y='162' width='440' height='22' fill='%23cde8a5'/><rect x='95' y='190' width='370' height='36' rx='16' fill='%23d98b2b'/><ellipse cx='290' cy='238' rx='240' ry='55' fill='%23f2c370'/></g></svg>"
       alt="Hamburguesa Mané"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Mané</h3>
@@ -373,11 +330,8 @@
   <!-- Distrito -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/distrito/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff0de' width='800' height='450'/><g transform='translate(100,110)'><ellipse cx='300' cy='60' rx='260' ry='60' fill='%23f6c777'/><rect x='80' y='110' width='440' height='60' rx='20' fill='%238b4513'/><rect x='70' y='175' width='460' height='25' fill='%23f6d58e'/><rect x='95' y='205' width='410' height='40' rx='20' fill='%23d98b2b'/><circle cx='180' cy='165' r='18' fill='%23f7c66a'/><circle cx='240' cy='165' r='18' fill='%23f7c66a'/><ellipse cx='300' cy='260' rx='260' ry='60' fill='%23f6c777'/></g></svg>"
       alt="Hamburguesa Distrito"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Distrito</h3>
@@ -390,11 +344,8 @@
   <!-- Ceilandia -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/ceilandia/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff7e6' width='800' height='450'/><g transform='translate(110,115)'><ellipse cx='290' cy='55' rx='240' ry='55' fill='%23f7cc80'/><rect x='70' y='105' width='420' height='52' rx='18' fill='%238b4513'/><rect x='60' y='162' width='440' height='22' fill='%23cde8a5'/><rect x='95' y='190' width='370' height='36' rx='16' fill='%23d98b2b'/><ellipse cx='290' cy='238' rx='240' ry='55' fill='%23f7cc80'/></g></svg>"
       alt="Hamburguesa Ceilandia"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Ceilandia</h3>
@@ -407,11 +358,8 @@
   <!-- Paranoa -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/paranoa/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff2e2' width='800' height='450'/><g transform='translate(110,115)'><ellipse cx='290' cy='55' rx='240' ry='55' fill='%23f6c777'/><rect x='70' y='105' width='420' height='52' rx='18' fill='%238b4513'/><rect x='60' y='162' width='440' height='22' fill='%23f8d68f'/><rect x='95' y='190' width='370' height='36' rx='16' fill='%23d98b2b'/><rect x='85' y='150' width='60' height='30' rx='8' fill='%238b5a2b'/><rect x='370' y='150' width='60' height='30' rx='8' fill='%238b5a2b'/><ellipse cx='290' cy='238' rx='240' ry='55' fill='%23f6c777'/></g></svg>"
       alt="Hamburguesa Paranoa"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Paranoa</h3>
@@ -424,11 +372,8 @@
   <!-- Pontão -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/pontao/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff4e6' width='800' height='450'/><g transform='translate(95,110)'><ellipse cx='305' cy='60' rx='270' ry='60' fill='%23f5c16c'/><rect x='70' y='110' width='470' height='60' rx='20' fill='%238b4513'/><rect x='95' y='175' width='420' height='25' fill='%23ffed8a'/><rect x='115' y='205' width='380' height='40' rx='20' fill='%23d98b2b'/><rect x='80' y='145' width='60' height='28' rx='6' fill='%23d46a6a'/><rect x='470' y='145' width='70' height='28' rx='6' fill='%23d46a6a'/><ellipse cx='305' cy='260' rx='270' ry='60' fill='%23f5c16c'/></g></svg>"
       alt="Hamburguesa Pontão"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Pontão</h3>
@@ -441,11 +386,8 @@
   <!-- ===== Distritinhos ===== -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/distritinhos/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23f4f9ff' width='800' height='450'/><g transform='translate(110,150)'><g transform='scale(0.55)'><ellipse cx='290' cy='55' rx='240' ry='55' fill='%23f2c370'/><rect x='70' y='105' width='420' height='52' rx='18' fill='%238b4513'/><rect x='60' y='162' width='440' height='22' fill='%23cde8a5'/><rect x='95' y='190' width='370' height='36' rx='16' fill='%23d98b2b'/><ellipse cx='290' cy='238' rx='240' ry='55' fill='%23f2c370'/></g><g transform='translate(240,0) scale(0.55)'><ellipse cx='290' cy='55' rx='240' ry='55' fill='%23f2c370'/><rect x='70' y='105' width='420' height='52' rx='18' fill='%238b4513'/><rect x='60' y='162' width='440' height='22' fill='%23cde8a5'/><rect x='95' y='190' width='370' height='36' rx='16' fill='%23d98b2b'/><ellipse cx='290' cy='238' rx='240' ry='55' fill='%23f2c370'/></g><g transform='translate(480,0) scale(0.55)'><ellipse cx='290' cy='55' rx='240' ry='55' fill='%23f2c370'/><rect x='70' y='105' width='420' height='52' rx='18' fill='%238b4513'/><rect x='60' y='162' width='440' height='22' fill='%23cde8a5'/><rect x='95' y='190' width='370' height='36' rx='16' fill='%23d98b2b'/><ellipse cx='290' cy='238' rx='240' ry='55' fill='%23f2c370'/></g></g></svg>"
       alt="Distritinhos"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
     />
     <div class="item-content">
       <h3>Distritinhos</h3>
@@ -461,11 +403,8 @@
   <!-- Combo upgrade -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/combo/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23f2fbff' width='800' height='450'/><g transform='translate(110,120)'><rect x='0' y='50' width='180' height='160' rx='18' fill='%23d32f2f'/><rect x='20' y='30' width='140' height='40' rx='8' fill='%23c62828'/><g fill='%23ffeb3b'><rect x='20' y='20' width='10' height='50'/><rect x='40' y='10' width='10' height='60'/><rect x='60' y='15' width='10' height='55'/><rect x='80' y='5' width='10' height='65'/><rect x='100' y='14' width='10' height='56'/><rect x='120' y='8' width='10' height='62'/><rect x='140' y='18' width='10' height='52'/></g></g><g transform='translate(380,80)'><path d='M80 260 C80 140 120 60 140 40 C160 60 200 140 200 260 Z' fill='%23121212'/><rect x='110' y='170' width='60' height='40' fill='%23e53935'/></g></svg>"
       alt="Combo Papas clásicas + soda"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/combo2/800/450';"
     />
     <div class="item-content">
       <h3>Transforma tu hamburguesa en combo</h3>
@@ -475,14 +414,11 @@
     </div>
   </div>
 
+  <!-- Papas Fritas -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff8e1' width='800' height='450'/><g transform='translate(260,110)'><rect x='0' y='50' width='180' height='160' rx='18' fill='%23d32f2f'/><rect x='20' y='30' width='140' height='40' rx='8' fill='%23c62828'/><g fill='%23ffeb3b'><rect x='20' y='20' width='10' height='50'/><rect x='40' y='10' width='10' height='60'/><rect x='60' y='15' width='10' height='55'/><rect x='80' y='5' width='10' height='65'/><rect x='100' y='14' width='10' height='56'/><rect x='120' y='8' width='10' height='62'/><rect x='140' y='18' width='10' height='52'/></g></g></svg>"
       alt="Papas Fritas"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/papas/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Papas Fritas</h3>
@@ -495,14 +431,11 @@
 
 <h2 class="section-title">🥤 Bebidas</h2>
 <div class="container">
+  <!-- Coca-Cola 500ml (garrafa clara) -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23f3faff' width='800' height='450'/><g transform='translate(300,60)'><path d='M60 300 C60 220 90 160 110 120 C120 100 120 80 120 60 C120 40 140 40 140 60 C140 80 140 100 150 120 C170 160 200 220 200 300 Z' fill='%23161616'/><rect x='105' y='180' width='50' height='36' fill='%23d50000' rx='6'/></g></svg>"
       alt="Coca-Cola 500ml"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/coca/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
     />
     <div class="item-content">
       <h3>Coca-Cola 500ml</h3>
@@ -515,11 +448,8 @@
   <!-- Jugo de la estación -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/jugo/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23fff6e8' width='800' height='450'/><g transform='translate(280,80)'><rect x='60' y='40' width='120' height='220' rx='16' fill='%23ffb74d'/><rect x='60' y='40' width='120' height='26' fill='%23ffd54f'/><rect x='130' y='0' width='6' height='60' fill='%23aaaaaa'/><circle cx='180' cy='60' r='18' fill='%23ff9800'/></g></svg>"
       alt="Jugo de la estación"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/jugo2/800/450';"
     />
     <div class="item-content">
       <h3>Jugo de la estación</h3>
@@ -532,11 +462,8 @@
   <!-- Agua -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/agua/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23eef9ff' width='800' height='450'/><g transform='translate(300,80)'><path d='M120 40 C150 100 190 150 190 210 C190 260 150 300 120 300 C90 300 50 260 50 210 C50 150 90 100 120 40 Z' fill='%2300a3ff'/></g></svg>"
       alt="Agua"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/agua2/800/450';"
     />
     <div class="item-content">
       <h3>Agua</h3>
@@ -549,11 +476,8 @@
   <!-- Agua con gas -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/aguagas/800/450"
+      src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><rect fill='%23eefaff' width='800' height='450'/><g transform='translate(300,80)'><path d='M120 40 C150 100 190 150 190 210 C190 260 150 300 120 300 C90 300 50 260 50 210 C50 150 90 100 120 40 Z' fill='%2300a3ff'/><g fill='%23ffffff' opacity='0.9'><circle cx='95' cy='180' r='6'/><circle cx='120' cy='160' r='5'/><circle cx='140' cy='185' r='4'/><circle cx='110' cy='205' r='5'/><circle cx='130' cy='220' r='6'/></g></g></svg>"
       alt="Agua con gas"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/aguagas2/800/450';"
     />
     <div class="item-content">
       <h3>Agua con gas</h3>
@@ -698,7 +622,7 @@
 
   window.onload = () => {
     toggleDireccion(true);
-    aplicarAgotados(); // aplica estado "Agotado" inicial (se houver)
+    aplicarAgotados();
   };
 
   /* ====== Lógica do Distritinhos (− / + com total 3) ====== */
@@ -707,11 +631,10 @@
   let distritinhosTotal = 0;
 
   function abrirDistritinhos() {
-    // Coleta todos os nomes da primeira seção de hamburguesas
     const hamburguesContainer = document.querySelectorAll('.container')[0];
     const nomes = Array.from(hamburguesContainer.querySelectorAll('.item .item-content h3'))
       .map(el => el.textContent.trim())
-      .filter(name => name.toLowerCase() !== 'distritinhos'); // não listar o próprio distritinhos
+      .filter(name => name.toLowerCase() !== 'distritinhos');
 
     distritinhosSabores = nomes;
     distritinhosCounts = new Array(nomes.length).fill(0);
@@ -796,7 +719,7 @@
     document.getElementById("cartSidebar").classList.add("open");
   }
 
-  // ====== Estoque / Agotado (facilitar marcar item em falta) ======
+  // ====== Estoque / Agotado (pronto para você me pedir e eu aplico) ======
   const AGOTADOS = new Set([
     // Exemplo: 'Ceilandia', 'Agua con gas'
   ]);
@@ -817,7 +740,7 @@
     AGOTADOS.forEach(n => setAgotado(n, true));
   }
 
-  // Mantido (não usado agora, deixo para compatibilidade caso queira voltar a checkboxes)
+  // Mantido (compatibilidade caso volte às checkboxes)
   function limitarSelecao(max, cb) {
     const overlay = document.getElementById('distritinhosOverlay');
     const marcados = overlay.querySelectorAll('input[type="checkbox"]:checked');

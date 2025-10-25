@@ -533,7 +533,7 @@
     document.getElementById("cartSidebar").classList.add("open");
   }
 
-  function actualizarCarrito() {
+  function atualizarCarrito() {
     const contenedor = document.getElementById("carrito");
     const totalDiv = document.getElementById("carrito-total");
     const contador = document.getElementById("contador");
@@ -564,12 +564,12 @@
 
   function removerItem(i) {
     carrito.splice(i, 1);
-    actualizarCarrito();
+    atualizarCarrito();
   }
 
   function vaciarCarrito() {
     carrito = [];
-    actualizarCarrito();
+    atualizarCarrito();
   }
 
   function toggleDireccion(show) {
@@ -646,26 +646,26 @@
   }
 
   function confirmarDistritinhos() {
-    try {
-      const selecionados = Array.from(document.querySelectorAll('#distritinhosOverlay input[type="checkbox"]:checked'))
-        .map(i => i.value);
-
-      if (selecionados.length !== 3) {
-        alert('Por favor, selecione exatamente 3 sabores.');
-        return;
-      }
-
-      const nome = `Distritinhos (${selecionados.join(', ')})`;
-      const preco = 60;
-
-      carrito.push({ nombre: nome, precio: preco });
-      atualizarCarrito();
-      fecharDistritinhos();
-      document.getElementById("cartSidebar").classList.add("open");
-    } catch (e) {
-      console.error(e);
-      alert('Ocorreu um erro ao confirmar os Distritinhos.');
+    // coleta segura e compatível com navegadores antigos
+    var overlay = document.getElementById('distritinhosOverlay');
+    var checks = overlay.querySelectorAll('input[type="checkbox"]');
+    var selecionados = [];
+    for (var i = 0; i < checks.length; i++) {
+      if (checks[i].checked) selecionados.push(checks[i].value);
     }
+
+    if (selecionados.length !== 3) {
+      alert('Por favor, selecione exatamente 3 sabores.');
+      return;
+    }
+
+    var nome = 'Distritinhos (' + selecionados.join(', ') + ')';
+    var preco = 60;
+
+    carrito.push({ nombre: nome, precio: preco });
+    atualizarCarrito();
+    fecharDistritinhos();
+    document.getElementById("cartSidebar").classList.add("open");
   }
 </script>
 </body>

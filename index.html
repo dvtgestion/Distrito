@@ -285,6 +285,74 @@
       <button onclick="agregarAlCarrito('Mané', 33)">Agregar</button>
     </div>
   </div>
+
+  <!-- DISTRITO (novo) -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/distrito/800/450"
+      alt="Hamburguesa DISTRITO"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+    />
+    <div class="item-content">
+      <h3>DISTRITO</h3>
+      <p>PAN DE PAPA,SALSA DE LA CASA, CARNE (160 GR), CEBOLLA CRISPY, PIÑA CARAMELIZADA, DOBLE TOCINO AHUMADO.</p>
+      <p><strong>Bs 40.00</strong></p>
+      <button onclick="agregarAlCarrito('DISTRITO', 40)">Agregar</button>
+    </div>
+  </div>
+
+  <!-- CEILANDIA (novo) -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/ceilandia/800/450"
+      alt="Hamburguesa CEILANDIA"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+    />
+    <div class="item-content">
+      <h3>CEILANDIA</h3>
+      <p>PAN DE PAPA, CARNE DE HAMBURGUESA (160GR), ENSALADA COLESLAW, QUESO CHEDDAR, SALSA BARBACOA ESPECIAL.</p>
+      <p><strong>Bs 38.00</strong></p>
+      <button onclick="agregarAlCarrito('CEILANDIA', 38)">Agregar</button>
+    </div>
+  </div>
+
+  <!-- PARANOA (novo) -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/paranoa/800/450"
+      alt="Hamburguesa PARANOA"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+    />
+    <div class="item-content">
+      <h3>PARANOA</h3>
+      <p>PAN DE PAPA, CARNE(160GR), AROS DE CEBOLLA FRITA, QUESO CHEDDAR, TOCINO AHUMADO, SALSA BARBACOA ESPECIAL.</p>
+      <p><strong>Bs 40.00</strong></p>
+      <button onclick="agregarAlCarrito('PARANOA', 40)">Agregar</button>
+    </div>
+  </div>
+
+  <!-- PONTÃO (novo) -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/pontao/800/450"
+      alt="Hamburguesa PONTÃO"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+    />
+    <div class="item-content">
+      <h3>PONTÃO</h3>
+      <p>PAN DE PAPA, CARNE (160 GR), QUESO CHEDDAR, JAMON, CALABRESA ESPECIAL, CEBOLLA, LECHUGA CRESPA, TOMATE, CEBOLLA CRISPPY.</p>
+      <p><strong>Bs 30.00</strong></p>
+      <button onclick="agregarAlCarrito('PONTÃO', 30)">Agregar</button>
+    </div>
+  </div>
 </div>
 
 <h2 class="section-title">🍟 Acompañamientos</h2>
@@ -436,8 +504,7 @@
 
     const descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
     mensaje += `%0ATotal: Bs ${(total - descuento).toFixed(2)}`;
-    if (cupon) mensaje += `%0ACupón: ${cupon}`;
-    mensagem = mensaje; /* no-op para manter compatibilidade com versões anteriores */
+    if (cupon) mensagem = mensaje; /* no-op para compatibilidade prévia */
     mensaje += `%0AEntrega: ${entrega}`;
     if (entrega === "domicilio" && direccion) mensaje += `%0ADirección: ${direccion}`;
     mensaje += `%0APago: ${metodo}`;

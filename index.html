@@ -173,7 +173,7 @@
       .cart-btn { top: 10px; right: 10px; padding: 10px; }
     }
 
-    /* ===== Overlay do Distritinhos (apenas adição) ===== */
+    /* ===== Overlay do Distritinhos ===== */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -204,14 +204,11 @@
       gap: 8px;
       margin: 10px 0 6px;
     }
-    .choices label {
-      display: flex;
-      align-items: center;
+    .choices .row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
       gap: 8px;
-      font-size: 14px;
-      padding: 6px 8px;
-      border: 1px solid #eee;
-      border-radius: 8px;
+      align-items: center;
     }
     .modal .actions {
       display: flex;
@@ -507,11 +504,11 @@
   </div>
 </div>
 
-<!-- ===== Overlay Distritinhos (apenas adição) ===== -->
+<!-- ===== Overlay Distritinhos ===== -->
 <div class="modal-overlay" id="distritinhosOverlay" role="dialog" aria-modal="true" aria-labelledby="distritinhosTitle">
   <div class="modal">
-    <h3 id="distritinhosTitle">Elige 3 mini hamburguesas</h3>
-    <div class="hint">Selecciona exactamente 3 sabores de la lista abajo.</div>
+    <h3 id="distritinhosTitle">Elige 3 mini hamburguesas (pueden repetirse)</h3>
+    <div class="hint">Selecciona un sabor para cada mini hamburguesa.</div>
     <div class="choices" id="distritinhosList"></div>
     <div class="actions">
       <button class="btn-cancel" type="button" onclick="fecharDistritinhos()">Cancelar</button>
@@ -533,7 +530,7 @@
     document.getElementById("cartSidebar").classList.add("open");
   }
 
-  function atualizarCarrito() {
+  function actualizarCarrito() {
     const contenedor = document.getElementById("carrito");
     const totalDiv = document.getElementById("carrito-total");
     const contador = document.getElementById("contador");
@@ -564,12 +561,12 @@
 
   function removerItem(i) {
     carrito.splice(i, 1);
-    atualizarCarrito();
+    actualizarCarrito();
   }
 
   function vaciarCarrito() {
     carrito = [];
-    atualizarCarrito();
+    actualizarCarrito();
   }
 
   function toggleDireccion(show) {
@@ -607,7 +604,7 @@
 
   window.onload = () => toggleDireccion(true);
 
-  /* ====== Funções do Distritinhos (apenas adição) ====== */
+  /* ====== Funções do Distritinhos ====== */
   function abrirDistritinhos() {
     // pega todos os nomes da primeira seção de hamburguesas
     const hamburguesContainer = document.querySelectorAll('.container')[0];
@@ -618,16 +615,30 @@
     const list = document.getElementById('distritinhosList');
     list.innerHTML = ''; // limpa
 
-    nomes.forEach((nome, idx) => {
-      const id = 'opt_' + idx;
-      const label = document.createElement('label');
-      label.setAttribute('for', id);
-      label.innerHTML = `
-        <input type="checkbox" id="${id}" value="${nome}" onchange="limitarSelecao(3, this)" />
-        ${nome}
-      `;
-      list.appendChild(label);
-    });
+    // cria 3 selects (Sabor 1, 2, 3)
+    for (let i = 0; i < 3; i++) {
+      const row = document.createElement('div');
+      row.className = 'row';
+      const lab = document.createElement('div');
+      lab.textContent = `Sabor ${i + 1}`;
+      const sel = document.createElement('select');
+      sel.className = 'sel-distritinhos';
+      // placeholder
+      const opt0 = document.createElement('option');
+      opt0.value = '';
+      opt0.textContent = 'Seleccione un sabor...';
+      sel.appendChild(opt0);
+      // opções
+      nomes.forEach(n => {
+        const o = document.createElement('option');
+        o.value = n;
+        o.textContent = n;
+        sel.appendChild(o);
+      });
+      row.appendChild(lab);
+      row.appendChild(sel);
+      list.appendChild(row);
+    }
 
     document.getElementById('distritinhosOverlay').style.display = 'flex';
   }
@@ -636,34 +647,33 @@
     document.getElementById('distritinhosOverlay').style.display = 'none';
   }
 
+  // Mantido (não usado com selects, mas deixo para compatibilidade)
   function limitarSelecao(max, cb) {
     const overlay = document.getElementById('distritinhosOverlay');
     const marcados = overlay.querySelectorAll('input[type="checkbox"]:checked');
     if (marcados.length > max) {
-      cb.checked = false; // impede selecionar mais que o máximo
+      cb.checked = false;
       alert(`Selecione no máximo ${max} sabores.`);
     }
   }
 
   function confirmarDistritinhos() {
-    // coleta segura e compatível com navegadores antigos
-    var overlay = document.getElementById('distritinhosOverlay');
-    var checks = overlay.querySelectorAll('input[type="checkbox"]');
-    var selecionados = [];
-    for (var i = 0; i < checks.length; i++) {
-      if (checks[i].checked) selecionados.push(checks[i].value);
+    const selects = document.querySelectorAll('#distritinhosList .sel-distritinhos');
+    const selecionados = [];
+    for (let i = 0; i < selects.length; i++) {
+      const v = selects[i].value.trim();
+      if (!v) {
+        alert('Por favor, seleccione un sabor en cada una de las 3 opciones.');
+        return;
+      }
+      selecionados.push(v);
     }
 
-    if (selecionados.length !== 3) {
-      alert('Por favor, selecione exatamente 3 sabores.');
-      return;
-    }
-
-    var nome = 'Distritinhos (' + selecionados.join(', ') + ')';
-    var preco = 60;
+    const nome = 'Distritinhos (' + selecionados.join(', ') + ')';
+    const preco = 60;
 
     carrito.push({ nombre: nome, precio: preco });
-    atualizarCarrito();
+    actualizarCarrito();
     fecharDistritinhos();
     document.getElementById("cartSidebar").classList.add("open");
   }

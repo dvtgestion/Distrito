@@ -172,6 +172,67 @@
       .cart-sidebar { width: 100%; }
       .cart-btn { top: 10px; right: 10px; padding: 10px; }
     }
+
+    /* ===== Overlay do Distritinhos (apenas adição) ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001; /* acima do carrinho (1000) */
+      padding: 16px;
+    }
+    .modal {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      padding: 16px;
+      max-height: 80vh;
+      overflow: auto;
+    }
+    .modal h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .choices {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin: 10px 0 6px;
+    }
+    .choices label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      padding: 6px 8px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+    .modal .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .modal .actions button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn-cancel { background: #eee; }
+    .btn-confirm { background: #ff6b00; color: #fff; }
+    .modal .hint {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -286,11 +347,11 @@
     </div>
   </div>
 
-  <!-- DISTRITO (agora: Distrito) -->
+  <!-- Distrito -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/distrito/800/450"
-      alt="Hamburguesa DISTRITO"
+      alt="Hamburguesa Distrito"
       decoding="async"
       loading="lazy"
       onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
@@ -303,11 +364,11 @@
     </div>
   </div>
 
-  <!-- CEILANDIA (agora: Ceilandia) -->
+  <!-- Ceilandia -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/ceilandia/800/450"
-      alt="Hamburguesa CEILANDIA"
+      alt="Hamburguesa Ceilandia"
       decoding="async"
       loading="lazy"
       onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
@@ -320,11 +381,11 @@
     </div>
   </div>
 
-  <!-- PARANOA (agora: Paranoa) -->
+  <!-- Paranoa -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/paranoa/800/450"
-      alt="Hamburguesa PARANOA"
+      alt="Hamburguesa Paranoa"
       decoding="async"
       loading="lazy"
       onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
@@ -337,11 +398,11 @@
     </div>
   </div>
 
-  <!-- PONTÃO (agora: Pontão) -->
+  <!-- Pontão -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/pontao/800/450"
-      alt="Hamburguesa PONTÃO"
+      alt="Hamburguesa Pontão"
       decoding="async"
       loading="lazy"
       onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
@@ -351,6 +412,23 @@
       <p>Pan de papa, carne (160 gr), queso cheddar, jamon, calabresa especial, cebolla, lechuga crespa, tomate, cebolla crisppy.</p>
       <p><strong>Bs 30.00</strong></p>
       <button onclick="agregarAlCarrito('Pontão', 30)">Agregar</button>
+    </div>
+  </div>
+
+  <!-- ===== NOVO ITEM: Distritinhos ===== -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/distritinhos/800/450"
+      alt="Distritinhos"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+    />
+    <div class="item-content">
+      <h3>Distritinhos</h3>
+      <p>3 mini hamburguesas de diferentes sabores a su elección con papas fritas</p>
+      <p><strong>Bs 60.00</strong></p>
+      <button onclick="abrirDistritinhos()">Agregar</button>
     </div>
   </div>
 </div>
@@ -426,6 +504,19 @@
   <div class="cart-actions">
     <button class="btn-clear" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
     <button class="btn-order" onclick="enviarPedido()">📤 Enviar por WhatsApp</button>
+  </div>
+</div>
+
+<!-- ===== Overlay Distritinhos (apenas adição) ===== -->
+<div class="modal-overlay" id="distritinhosOverlay" role="dialog" aria-modal="true" aria-labelledby="distritinhosTitle">
+  <div class="modal">
+    <h3 id="distritinhosTitle">Elige 3 mini hamburguesas</h3>
+    <div class="hint">Selecciona exactamente 3 sabores de la lista abajo.</div>
+    <div class="choices" id="distritinhosList"></div>
+    <div class="actions">
+      <button class="btn-cancel" onclick="fecharDistritinhos()">Cancelar</button>
+      <button class="btn-confirm" onclick="confirmarDistritinhos()">Confirmar</button>
+    </div>
   </div>
 </div>
 
@@ -515,6 +606,63 @@
   }
 
   window.onload = () => toggleDireccion(true);
+
+  /* ====== Funções do Distritinhos (apenas adição) ====== */
+  function abrirDistritinhos() {
+    // pega todos os nomes da primeira seção de hamburguesas
+    const hamburguesContainer = document.querySelectorAll('.container')[0];
+    const nomes = Array.from(hamburguesContainer.querySelectorAll('.item .item-content h3'))
+      .map(el => el.textContent.trim())
+      .filter(name => name.toLowerCase() !== 'distritinhos'); // não listar o próprio distritinhos
+
+    const list = document.getElementById('distritinhosList');
+    list.innerHTML = ''; // limpa
+
+    nomes.forEach((nome, idx) => {
+      const id = 'opt_' + idx;
+      const label = document.createElement('label');
+      label.setAttribute('for', id);
+      label.innerHTML = `
+        <input type="checkbox" id="${id}" value="${nome}" onchange="limitarSelecao(3, this)" />
+        ${nome}
+      `;
+      list.appendChild(label);
+    });
+
+    document.getElementById('distritinhosOverlay').style.display = 'flex';
+  }
+
+  function fecharDistritinhos() {
+    document.getElementById('distritinhosOverlay').style.display = 'none';
+  }
+
+  function limitarSelecao(max, cb) {
+    const overlay = document.getElementById('distritinhosOverlay');
+    const marcados = overlay.querySelectorAll('input[type="checkbox"]:checked');
+    if (marcados.length > max) {
+      cb.checked = false; // impede selecionar mais que o máximo
+      alert(`Selecione no máximo ${max} sabores.`);
+    }
+  }
+
+  function confirmarDistritinhos() {
+    const overlay = document.getElementById('distritinhosOverlay');
+    const selecionados = Array.from(overlay.querySelectorAll('input[type="checkbox"]:checked'))
+      .map(i => i.value);
+
+    if (selecionados.length !== 3) {
+      alert('Por favor, selecione exatamente 3 sabores.');
+      return;
+    }
+
+    const nome = `Distritinhos (${selecionados.join(', ')})`;
+    const preco = 60;
+
+    carrito.push({ nombre: nome, precio: preco });
+    atualizarCarrito();
+    fecharDistritinhos();
+    document.getElementById("cartSidebar").classList.add("open");
+  }
 </script>
 </body>
 </html>

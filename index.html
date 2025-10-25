@@ -12,7 +12,7 @@
                         https://images.pexels.com
                         https://upload.wikimedia.org
                         https://picsum.photos
-                        https://raw.githubusercontent.com  <!-- ALTERADO: adicionado raw.githubusercontent.com -->
+                        https://raw.githubusercontent.com
                         data:;
                  script-src 'self' 'unsafe-inline';
                  style-src 'self' 'unsafe-inline';
@@ -371,7 +371,7 @@
   <!-- Distrito (burger + bacon/piña -> imagem de burger geral) -->
   <div class="item">
     <img
-      src="https://raw.githubusercontent.com/dvtgestion/Fotosdistrito/d1c35e09c52dd68d619822f11a6db0944f8f626f/4A370153-7FE3-4E8A-8BBD-46ABAAF7A391.png"  <!-- ALTERADO: src com link RAW do GitHub -->
+      src="https://raw.githubusercontent.com/dvtgestion/Fotosdistrito/d1c35e09c52dd68d619822f11a6db0944f8f626f/4A370153-7FE3-4E8A-8BBD-46ABAAF7A391.png"
       alt="Hamburguesa Distrito"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
       onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hamburger_%28black_bg%29.jpg/1024px-Hamburger_%28black_bg%29.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/distrito/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
@@ -647,6 +647,7 @@
 
   function vaciarCarrito() {
     carrito = [];
+    atualizarCarrito?.(); // fallback se renomear
     actualizarCarrito();
   }
 
@@ -815,3 +816,4 @@
   }
 </script>
 </body>
+</html>

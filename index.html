@@ -73,6 +73,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       overflow: hidden;
       transition: transform 0.2s;
+      position: relative;
     }
     .item:hover { transform: scale(1.02); }
     .item img {
@@ -94,6 +95,27 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+    /* ===== Estado: Agotado ===== */
+    .item.soldout img { filter: grayscale(0.6) brightness(0.85); }
+    .item.soldout::after {
+      content: "Agotado";
+      position: absolute;
+      top: 12px;
+      left: -40px;
+      background: #c0392b;
+      color: #fff;
+      transform: rotate(-45deg);
+      padding: 6px 46px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      letter-spacing: 0.3px;
+    }
+    .item.soldout button {
+      opacity: .55;
+      pointer-events: none;
+    }
+
     .cart-sidebar {
       position: fixed;
       top: 0;
@@ -122,14 +144,14 @@
       margin-bottom: 10px;
     }
     .cart-item span:first-of-type {
-      flex: 1;                /* nome ocupa o espaço flexível */
+      flex: 1;
       padding-right: 8px;
       overflow-wrap: anywhere;
     }
     .cart-item span:nth-of-type(2) {
-      width: 120px;           /* coluna fixa de preço para alinhar */
+      width: 120px;
       text-align: right;
-      font-variant-numeric: tabular-nums; /* dígitos monoespaçados p/ alinhar */
+      font-variant-numeric: tabular-nums;
       white-space: nowrap;
     }
     .cart-item button {
@@ -144,17 +166,17 @@
       font-weight: bold;
       border-top: 1px solid #ddd;
       padding-top: 10px;
-      text-align: right;      /* total à direita combina com coluna de preços */
+      text-align: right;
       font-variant-numeric: tabular-nums;
     }
 
     /* ===== Ações do carrinho: centralizado e com espaçamento ===== */
     .cart-actions {
       margin-top: 24px;
-      display: flex;               /* (corrige vírgula) */
+      display: flex;
       flex-direction: column;
-      align-items: center;         /* centraliza os botões */
-      gap: 14px;                   /* separação visível */
+      align-items: center;
+      gap: 14px;
     }
     .btn-clear { background: #ff4d4d; color: white; }
     .btn-order { background: #25d366; color: white; }
@@ -166,8 +188,8 @@
       border-radius: 8px;
       cursor: pointer;
       width: 100%;
-      max-width: 260px;           /* largura elegante */
-      margin: 0 auto;             /* assegura centralização */
+      max-width: 260px;
+      margin: 0 auto;
     }
 
     .close-btn {
@@ -193,7 +215,7 @@
       .item { width: 100%; }
       .cart-sidebar { width: 100%; }
       .cart-btn { top: 10px; right: 10px; padding: 10px; }
-      .cart-item span:nth-of-type(2) { width: 100px; } /* um pouco menor no mobile */
+      .cart-item span:nth-of-type(2) { width: 100px; }
     }
 
     /* ===== Overlay do Distritinhos ===== */
@@ -436,6 +458,23 @@
 
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
+  <!-- Combo upgrade -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/combo/800/450"
+      alt="Combo Papas clásicas + soda"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='https://picsum.photos/seed/combo2/800/450';"
+    />
+    <div class="item-content">
+      <h3>Transforma tu hamburguesa en combo</h3>
+      <p>Papas clásicas + soda</p>
+      <p><strong>Bs 16.00</strong></p>
+      <button onclick="agregarAlCarrito('Combo: Papas clásicas + soda', 16)">Agregar</button>
+    </div>
+  </div>
+
   <div class="item">
     <img
       src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
@@ -472,6 +511,57 @@
       <button onclick="agregarAlCarrito('Coca-Cola 500ml', 8)">Agregar</button>
     </div>
   </div>
+
+  <!-- Jugo de la estación -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/jugo/800/450"
+      alt="Jugo de la estación"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='https://picsum.photos/seed/jugo2/800/450';"
+    />
+    <div class="item-content">
+      <h3>Jugo de la estación</h3>
+      <p>Fresco del día</p>
+      <p><strong>Bs 10.00</strong></p>
+      <button onclick="agregarAlCarrito('Jugo de la estación', 10)">Agregar</button>
+    </div>
+  </div>
+
+  <!-- Agua -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/agua/800/450"
+      alt="Agua"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='https://picsum.photos/seed/agua2/800/450';"
+    />
+    <div class="item-content">
+      <h3>Agua</h3>
+      <p>Botella individual</p>
+      <p><strong>Bs 8.00</strong></p>
+      <button onclick="agregarAlCarrito('Agua', 8)">Agregar</button>
+    </div>
+  </div>
+
+  <!-- Agua con gas -->
+  <div class="item">
+    <img
+      src="https://picsum.photos/seed/aguagas/800/450"
+      alt="Agua con gas"
+      decoding="async"
+      loading="lazy"
+      onerror="this.onerror=null;this.src='https://picsum.photos/seed/aguagas2/800/450';"
+    />
+    <div class="item-content">
+      <h3>Agua con gas</h3>
+      <p>Botella individual</p>
+      <p><strong>Bs 8.00</strong></p>
+      <button onclick="agregarAlCarrito('Agua con gas', 8)">Agregar</button>
+    </div>
+  </div>
 </div>
 
 <!-- Carrinho -->
@@ -504,7 +594,7 @@
 
   <div class="cart-actions">
     <button class="btn-clear" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
-    <button class="btn-order" onclick="enviarPedido()">🧾 Finalizar pedido</button>
+    <button class="btn-order" onclick="enviarPedido()">📤 Enviar pedido</button>
   </div>
 </div>
 
@@ -596,7 +686,7 @@
 
     const descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
     mensaje += `%0ATotal: Bs ${(total - descuento).toFixed(2)}`;
-    if (cupon) mensagem = mensaje; /* no-op para compatibilidade prévia */
+    if (cupon) mensagem = mensaje; /* compat */
     mensaje += `%0AEntrega: ${entrega}`;
     if (entrega === "domicilio" && direccion) mensaje += `%0ADirección: ${direccion}`;
     mensaje += `%0APago: ${metodo}`;
@@ -606,7 +696,10 @@
     window.open(`https://wa.me/${tel}?text=${mensaje}`, '_blank');
   }
 
-  window.onload = () => toggleDireccion(true);
+  window.onload = () => {
+    toggleDireccion(true);
+    aplicarAgotados(); // aplica estado "Agotado" inicial (se houver)
+  };
 
   /* ====== Lógica do Distritinhos (− / + com total 3) ====== */
   let distritinhosSabores = [];
@@ -669,12 +762,10 @@
   }
 
   function dUpdateUI() {
-    // atualiza contadores na UI
     for (let i = 0; i < distritinhosCounts.length; i++) {
       const span = document.getElementById('dqty-' + i);
       if (span) span.textContent = distritinhosCounts[i];
     }
-    // atualiza dica e botão confirmar
     const restantes = 3 - distritinhosTotal;
     const hint = document.getElementById('distritinhosHint');
     hint.textContent = restantes > 0
@@ -691,13 +782,10 @@
       return;
     }
 
-    // monta "Sabor ×N" apenas para os que tiverem quantidade > 0
     const partes = [];
     for (let i = 0; i < distritinhosCounts.length; i++) {
       const n = distritinhosCounts[i];
-      if (n > 0) {
-        partes.push(`${distritinhosSabores[i]} ×${n}`);
-      }
+      if (n > 0) partes.push(`${distritinhosSabores[i]} ×${n}`);
     }
 
     const nome = 'Distritinhos (' + partes.join(', ') + ')';
@@ -706,6 +794,27 @@
     actualizarCarrito();
     fecharDistritinhos();
     document.getElementById("cartSidebar").classList.add("open");
+  }
+
+  // ====== Estoque / Agotado (facilitar marcar item em falta) ======
+  const AGOTADOS = new Set([
+    // Exemplo: 'Ceilandia', 'Agua con gas'
+  ]);
+
+  function setAgotado(nombre, isSoldOut) {
+    const cards = document.querySelectorAll('.container .item');
+    for (const card of cards) {
+      const h3 = card.querySelector('.item-content h3');
+      if (!h3) continue;
+      if (h3.textContent.trim().toLowerCase() === nombre.trim().toLowerCase()) {
+        if (isSoldOut) card.classList.add('soldout');
+        else card.classList.remove('soldout');
+      }
+    }
+  }
+
+  function aplicarAgotados() {
+    AGOTADOS.forEach(n => setAgotado(n, true));
   }
 
   // Mantido (não usado agora, deixo para compatibilidade caso queira voltar a checkboxes)

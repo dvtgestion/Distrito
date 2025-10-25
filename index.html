@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- CSP permitindo imagens do Pexels/Picsum/Unsplash e data: -->
+  <!-- CSP permitindo imagens do Pexels/Picsum/Unsplash + Source Unsplash e data: -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 img-src 'self' https://images.pexels.com https://picsum.photos https://images.unsplash.com data:;
+                 img-src 'self' https://images.pexels.com https://picsum.photos https://images.unsplash.com https://source.unsplash.com data:;
                  script-src 'self' 'unsafe-inline';
                  style-src 'self' 'unsafe-inline';
                  connect-src 'self';
@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link rel="preconnect" href="https://picsum.photos" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
 
   <style>
     * { box-sizing: border-box; }
@@ -304,12 +305,10 @@
   <!-- Candango -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://source.unsplash.com/800x450/?burger,cheddar,beef"
       alt="Hamburguesa Candango"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/candango/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Candango</h3>
@@ -322,11 +321,10 @@
   <!-- Plano Piloto -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/plano-piloto/800/450"
+      src="https://source.unsplash.com/800x450/?double-burger,bacon,cheddar"
       alt="Hamburguesa Plano Piloto"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Plano Piloto</h3>
@@ -339,11 +337,10 @@
   <!-- Catedral -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/catedral/800/450"
+      src="https://source.unsplash.com/800x450/?fried-chicken-sandwich,coleslaw"
       alt="Hamburguesa Catedral"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Catedral</h3>
@@ -356,11 +353,10 @@
   <!-- Mané -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/mane/800/450"
+      src="https://source.unsplash.com/800x450/?chicken-burger,lettuce,tomato"
       alt="Hamburguesa Mané"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Mané</h3>
@@ -373,11 +369,10 @@
   <!-- Distrito -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/distrito/800/450"
+      src="https://source.unsplash.com/800x450/?burger,pineapple,bacon"
       alt="Hamburguesa Distrito"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Distrito</h3>
@@ -390,11 +385,10 @@
   <!-- Ceilandia -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/ceilandia/800/450"
+      src="https://source.unsplash.com/800x450/?burger,coleslaw,bbq,cheddar"
       alt="Hamburguesa Ceilandia"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Ceilandia</h3>
@@ -407,11 +401,10 @@
   <!-- Paranoa -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/paranoa/800/450"
+      src="https://source.unsplash.com/800x450/?burger,onion-rings,bacon,bbq"
       alt="Hamburguesa Paranoa"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Paranoa</h3>
@@ -424,11 +417,10 @@
   <!-- Pontão -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/pontao/800/450"
+      src="https://source.unsplash.com/800x450/?burger,ham,salami,lettuce,tomato"
       alt="Hamburguesa Pontão"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Pontão</h3>
@@ -441,11 +433,10 @@
   <!-- ===== Distritinhos ===== -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/distritinhos/800/450"
+      src="https://source.unsplash.com/800x450/?slider-burgers,mini-burgers"
       alt="Distritinhos"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Distritinhos</h3>
@@ -461,11 +452,10 @@
   <!-- Combo upgrade -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/combo/800/450"
+      src="https://source.unsplash.com/800x450/?fries,soda"
       alt="Combo Papas clásicas + soda"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/combo2/800/450';"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Transforma tu hamburguesa en combo</h3>
@@ -477,12 +467,10 @@
 
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://source.unsplash.com/800x450/?french-fries"
       alt="Papas Fritas"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/papas/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Papas Fritas</h3>
@@ -495,14 +483,13 @@
 
 <h2 class="section-title">🥤 Bebidas</h2>
 <div class="container">
+  <!-- Coca-Cola 500ml (corrigida: garrafa/lata de Coca-Cola) -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://source.unsplash.com/800x450/?coca-cola,bottle"
       alt="Coca-Cola 500ml"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/coca/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Coca-Cola 500ml</h3>
@@ -515,11 +502,10 @@
   <!-- Jugo de la estación -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/jugo/800/450"
+      src="https://source.unsplash.com/800x450/?fruit-juice,glass"
       alt="Jugo de la estación"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/jugo2/800/450';"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Jugo de la estación</h3>
@@ -532,11 +518,10 @@
   <!-- Agua -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/agua/800/450"
+      src="https://source.unsplash.com/800x450/?water,bottle"
       alt="Agua"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/agua2/800/450';"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Agua</h3>
@@ -549,11 +534,10 @@
   <!-- Agua con gas -->
   <div class="item">
     <img
-      src="https://picsum.photos/seed/aguagas/800/450"
+      src="https://source.unsplash.com/800x450/?sparkling-water,bottle"
       alt="Agua con gas"
-      decoding="async"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='https://picsum.photos/seed/aguagas2/800/450';"
+      decoding="async" loading="lazy"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2228%22 fill=%22%23999%22>Imagen%20no%20disponible</text></svg>'"
     />
     <div class="item-content">
       <h3>Agua con gas</h3>

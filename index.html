@@ -113,11 +113,24 @@
     }
     .cart-sidebar.open { transform: translateX(0); } /* aberto */
     .cart-sidebar h2 { margin-top: 0; font-size: 20px; }
+
+    /* ===== Carrinho: alinhamento profissional ===== */
     .cart-item {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
       align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .cart-item span:first-of-type {
+      flex: 1;                /* nome ocupa o espaço flexível */
+      padding-right: 8px;
+      overflow-wrap: anywhere;
+    }
+    .cart-item span:nth-of-type(2) {
+      width: 120px;           /* coluna fixa de preço para alinhar */
+      text-align: right;
+      font-variant-numeric: tabular-nums; /* dígitos monoespaçados p/ alinhar */
+      white-space: nowrap;
     }
     .cart-item button {
       background: none;
@@ -131,12 +144,17 @@
       font-weight: bold;
       border-top: 1px solid #ddd;
       padding-top: 10px;
+      text-align: right;      /* total à direita combina com coluna de preços */
+      font-variant-numeric: tabular-nums;
     }
+
+    /* ===== Ações do carrinho: centralizado e com espaçamento ===== */
     .cart-actions {
-      margin-top: 20px;
-      display: flex,
+      margin-top: 24px;
+      display: flex;               /* (corrige vírgula) */
       flex-direction: column;
-      gap: 10px;
+      align-items: center;         /* centraliza os botões */
+      gap: 14px;                   /* separação visível */
     }
     .btn-clear { background: #ff4d4d; color: white; }
     .btn-order { background: #25d366; color: white; }
@@ -147,7 +165,11 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      width: 100%;
+      max-width: 260px;           /* largura elegante */
+      margin: 0 auto;             /* assegura centralização */
     }
+
     .close-btn {
       background: transparent;
       border: none;
@@ -171,6 +193,7 @@
       .item { width: 100%; }
       .cart-sidebar { width: 100%; }
       .cart-btn { top: 10px; right: 10px; padding: 10px; }
+      .cart-item span:nth-of-type(2) { width: 100px; } /* um pouco menor no mobile */
     }
 
     /* ===== Overlay do Distritinhos ===== */
@@ -210,11 +233,7 @@
       gap: 8px;
       align-items: center;
     }
-    .qty {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .qty { display: flex; align-items: center; gap: 8px; }
     .btn-qty {
       border: 1px solid #ddd;
       background: #f7f7f7;
@@ -258,41 +277,7 @@
 
 <h2 class="section-title">🍔 Hamburguesas</h2>
 <div class="container">
-  <!-- Clásica -->
-  <div class="item">
-    <img
-      src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
-      alt="Hamburguesa Clásica"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/classica/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
-    />
-    <div class="item-content">
-      <h3>Hamburguesa Clásica</h3>
-      <p>Carne 100% vacuna, queso cheddar, lechuga y tomate</p>
-      <p><strong>Bs 35.00</strong></p>
-      <button onclick="agregarAlCarrito('Hamburguesa Clásica', 35)">Agregar</button>
-    </div>
-  </div>
-
-  <!-- BBQ -->
-  <div class="item">
-    <img
-      src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
-      alt="Hamburguesa BBQ"
-      referrerpolicy="no-referrer"
-      decoding="async"
-      loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://picsum.photos/seed/bbq/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Segoe UI%22 font-size=%2232%22 fill=%22%23999%22>Imagem%20indispon%C3%ADvel</text></svg>'}"
-    />
-    <div class="item-content">
-      <h3>Hamburguesa BBQ</h3>
-      <p>Carne, cebolla caramelizada, bacon, salsa BBQ</p>
-      <p><strong>Bs 42.00</strong></p>
-      <button onclick="agregarAlCarrito('Hamburguesa BBQ', 42)">Agregar</button>
-    </div>
-  </div>
+  <!-- (REMOVIDOS: Hamburguesa Clásica e Hamburguesa BBQ) -->
 
   <!-- Candango -->
   <div class="item">
@@ -431,7 +416,7 @@
     </div>
   </div>
 
-  <!-- ===== NOVO ITEM: Distritinhos ===== -->
+  <!-- ===== Distritinhos ===== -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/distritinhos/800/450"
@@ -519,7 +504,7 @@
 
   <div class="cart-actions">
     <button class="btn-clear" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
-    <button class="btn-order" onclick="enviarPedido()">📤 Enviar por WhatsApp</button>
+    <button class="btn-order" onclick="enviarPedido()">🧾 Finalizar pedido</button>
   </div>
 </div>
 

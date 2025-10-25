@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- CSP: permite Pexels / Wikimedia / Picsum / RAW GitHub e data: -->
+  <!-- CSP: permite Pexels / Wikimedia / RAW GitHub e data: -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  img-src 'self'
                         https://images.pexels.com
                         https://upload.wikimedia.org
-                        https://picsum.photos
                         https://raw.githubusercontent.com
                         data:;
                  script-src 'self' 'unsafe-inline';
@@ -19,10 +18,10 @@
                  connect-src 'self';
                  font-src 'self' data:;">
 
-  <!-- Pré-conexões (opcional, ajuda na latência) -->
+  <!-- Pré-conexões (ajuda na latência) -->
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
-  <link rel="preconnect" href="https://picsum.photos" crossorigin>
+  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 
   <style>
     * { box-sizing: border-box; }
@@ -209,7 +208,7 @@
       padding: 8px;
       margin-top: 5px;
       border-radius: 6px;
-      border: 1px solid #ccc.
+      border: 1px solid #ccc;
     }
     .option-label {
       margin-top: 12px;
@@ -307,10 +306,10 @@
   <!-- Candango -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Candango"
-      referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hamburger_sandwich.jpg/1024px-Hamburger_sandwich.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/candango/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      referrerpolicy="no-referrer" decoding="async" loading="eager"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Candango</h3>
@@ -323,10 +322,10 @@
   <!-- Plano Piloto -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1639556/pexels-photo-1639556.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://images.pexels.com/photos/1639556/pexels-photo-1639556.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Plano Piloto"
-      referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Bacon_cheeseburger.jpg/1024px-Bacon_cheeseburger.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/plano/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      referrerpolicy="no-referrer" decoding="async" loading="eager"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Plano Piloto</h3>
@@ -339,10 +338,10 @@
   <!-- Catedral (pollo empanizado + coleslaw) -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/8382493/pexels-photo-8382493.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://images.pexels.com/photos/8382493/pexels-photo-8382493.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Catedral"
-      referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Chicken_sandwich.jpg/1024px-Chicken_sandwich.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/catedral/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      referrerpolicy="no-referrer" decoding="async" loading="eager"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Catedral</h3>
@@ -355,10 +354,10 @@
   <!-- Mané (pollo) -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1633553/pexels-photo-1633553.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://images.pexels.com/photos/1633553/pexels-photo-1633553.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Mané"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Chicken_burger.jpg/1024px-Chicken_burger.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/mane/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Mané</h3>
@@ -368,13 +367,13 @@
     </div>
   </div>
 
-  <!-- Distrito (mantido com a SUA foto RAW do GitHub) -->
+  <!-- Distrito (foto própria RAW do GitHub) -->
   <div class="item">
     <img
       src="https://raw.githubusercontent.com/dvtgestion/Fotosdistrito/d1c35e09c52dd68d619822f11a6db0944f8f626f/4A370153-7FE3-4E8A-8BBD-46ABAAF7A391.png"
       alt="Hamburguesa Distrito"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hamburger_%28black_bg%29.jpg/1024px-Hamburger_%28black_bg%29.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/distrito/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Distrito</h3>
@@ -387,10 +386,10 @@
   <!-- Ceilandia -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Ceilandia"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hamburger_sandwich.jpg/1024px-Hamburger_sandwich.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/ceilandia/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Ceilandia</h3>
@@ -403,10 +402,10 @@
   <!-- Paranoa -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/1639567/pexels-photo-1639567.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+      src="https://images.pexels.com/photos/1639567/pexels-photo-1639567.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Paranoa"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Onion_rings-1.jpg/1024px-Onion_rings-1.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/paranoa/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Paranoa</h3>
@@ -419,10 +418,10 @@
   <!-- Pontão -->
   <div class="item">
     <img
-      src="https://raw.githubusercontent.com/dvtgestion/Fotosdistrito/main/9F9C6BE6-F43C-4306-8499-FCE4F1C8DE75.png"
+      src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
       alt="Hamburguesa Pontão"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hamburger_sandwich.jpg/1024px-Hamburger_sandwich.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/pontao/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Pontão</h3>
@@ -432,13 +431,13 @@
     </div>
   </div>
 
-  <!-- ===== Distritinhos (sliders) ===== -->
+  <!-- ===== Distritinhos (sliders, foto própria RAW) ===== -->
   <div class="item">
     <img
       src="https://raw.githubusercontent.com/dvtgestion/Fotosdistrito/d1c35e09c52dd68d619822f11a6db0944f8f626f/269F9290-45B7-47C3-9084-112B0B0765F6.png"
       alt="Distritinhos"
       referrerpolicy="no-referrer" decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Sliders_%28food%29.jpg/1024px-Sliders_%28food%29.jpg';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/distritinhos/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Distritinhos</h3>
@@ -451,13 +450,13 @@
 
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
-  <!-- Combo upgrade: fritas + soda (TROCADO para seu RAW novo) -->
+  <!-- Combo upgrade: fritas + soda -->
   <div class="item">
     <img
-      src="https://raw.githubusercontent.com/dvtgestion/Fotosdistrito/main/9BB5D27E-B729-4635-B3A8-82A0B3DA5934.png"
+      src="https://upload.wikimedia.org/wikipedia/commons/1/10/Glass_cola.jpg"
       alt="Combo Papas clásicas + soda"
       decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/combo/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Transforma tu hamburguesa en combo</h3>
@@ -473,7 +472,7 @@
       src="https://upload.wikimedia.org/wikipedia/commons/e/e4/French_fries_20180827.jpg"
       alt="Papas Fritas"
       decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/papas/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Papas Fritas</h3>
@@ -486,13 +485,13 @@
 
 <h2 class="section-title">🥤 Bebidas</h2>
 <div class="container">
-  <!-- Coca-Cola 500ml (garrafa real) -->
+  <!-- Coca-Cola 500ml -->
   <div class="item">
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Cocacola_bottle.jpg"
       alt="Coca-Cola 500ml"
       decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/coca/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Coca-Cola 500ml</h3>
@@ -502,13 +501,13 @@
     </div>
   </div>
 
-  <!-- Jugo de la estación (suco/laranja) -->
+  <!-- Jugo de la estación -->
   <div class="item">
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Orangejuice.jpg/960px-Orangejuice.jpg"
       alt="Jugo de la estación"
       decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/jugo/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Jugo de la estación</h3>
@@ -524,7 +523,7 @@
       src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Plastic_Water_Bottle.jpg"
       alt="Agua"
       decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/agua/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Agua</h3>
@@ -540,7 +539,7 @@
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/San_Pellegrino_Bottle.jpg/960px-San_Pellegrino_Bottle.jpg"
       alt="Agua con gas"
       decoding="async" loading="lazy"
-      onerror="if(!this.dataset.f1){this.dataset.f1=1;this.src='https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop';}else if(!this.dataset.f2){this.dataset.f2=1;this.src='https://picsum.photos/seed/aguagas/800/450';}else{this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/></svg>';}"
+      onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">
       <h3>Agua con gas</h3>

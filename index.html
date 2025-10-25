@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- CSP permitindo imagens do Pexels/Picsum/Unsplash/Drive e data: -->
+  <!-- CSP permitindo imagens do Pexels/Picsum/Unsplash e data: -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-                 img-src 'self' https://images.pexels.com https://picsum.photos https://images.unsplash.com https://drive.google.com https://lh3.googleusercontent.com data:;
+                 img-src 'self' https://images.pexels.com https://picsum.photos https://images.unsplash.com data:;
                  script-src 'self' 'unsafe-inline';
                  style-src 'self' 'unsafe-inline';
                  connect-src 'self';
@@ -134,7 +134,7 @@
     }
     .cart-actions {
       margin-top: 20px;
-      display: flex;
+      display: flex,
       flex-direction: column;
       gap: 10px;
     }
@@ -235,7 +235,7 @@
     </div>
   </div>
 
-  <!-- Plano Piloto (novo) -->
+  <!-- Plano Piloto -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/plano-piloto/800/450"
@@ -252,7 +252,7 @@
     </div>
   </div>
 
-  <!-- Catedral (novo) -->
+  <!-- Catedral -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/catedral/800/450"
@@ -269,7 +269,7 @@
     </div>
   </div>
 
-  <!-- Mané (novo) -->
+  <!-- Mané -->
   <div class="item">
     <img
       src="https://picsum.photos/seed/mane/800/450"
@@ -395,9 +395,9 @@
           </div>`;
       });
 
-      let cupom = document.getElementById("cupon").value.trim().toUpperCase();
-      let desconto = cupom === "DESCUENTO10" ? total * 0.10 : 0;
-      totalDiv.innerHTML = `Total: Bs ${(total - desconto).toFixed(2)} ${descuento ? "(con descuento aplicado)" : ""}`;
+      const cupon = document.getElementById("cupon").value.trim().toUpperCase();
+      const descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
+      totalDiv.innerHTML = `Total: Bs ${(total - descuento).toFixed(2)} ${descuento ? "(con descuento aplicado)" : ""}`;
     }
 
     contador.textContent = carrito.length;
@@ -434,9 +434,10 @@
       total += item.precio;
     });
 
-    let descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
+    const descuento = cupon === "DESCUENTO10" ? total * 0.10 : 0;
     mensaje += `%0ATotal: Bs ${(total - descuento).toFixed(2)}`;
     if (cupon) mensaje += `%0ACupón: ${cupon}`;
+    mensagem = mensaje; /* no-op para manter compatibilidade com versões anteriores */
     mensaje += `%0AEntrega: ${entrega}`;
     if (entrega === "domicilio" && direccion) mensaje += `%0ADirección: ${direccion}`;
     mensaje += `%0APago: ${metodo}`;

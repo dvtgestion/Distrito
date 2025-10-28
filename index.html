@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DISTRITO - Hamburguesas</title>
 
-  <!-- CSP: permite Pexels / Wikimedia / RAW GitHub e data: -->
+  <!-- CSP: permite Pexels / Wikimedia / RAW GitHub / ImgBB e data: -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  img-src 'self'
                         https://images.pexels.com
                         https://upload.wikimedia.org
                         https://raw.githubusercontent.com
+                        https://i.ibb.co
                         data:;
                  script-src 'self' 'unsafe-inline';
                  style-src 'self' 'unsafe-inline';
@@ -22,6 +23,7 @@
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
   <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+  <link rel="preconnect" href="https://i.ibb.co" crossorigin>
 
   <style>
     * { box-sizing: border-box; }
@@ -122,7 +124,7 @@
 
     .cart-sidebar {
       position: fixed;
-      top: 0;
+      top: 0,
       right: 0;
       width: 350px;
       height: 100%;
@@ -450,12 +452,14 @@
 
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
-  <!-- Combo upgrade: fritas + soda -->
+  <!-- Combo upgrade: fritas + soda (TROCADO para ImgBB Direct link) -->
   <div class="item">
     <img
-      src="https://upload.wikimedia.org/wikipedia/commons/1/10/Glass_cola.jpg"
+      src="https://i.ibb.co/Q33MkXBC/9-BB5-D27-E-B729-4635-B3-A8-82-A0-B3-DA5934.png"
       alt="Combo Papas clásicas + soda"
-      decoding="async" loading="lazy"
+      referrerpolicy="no-referrer"
+      decoding="async"
+      loading="lazy"
       onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
     />
     <div class="item-content">

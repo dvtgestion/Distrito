@@ -286,7 +286,7 @@
       border: none;
       border-radius: 8px;
       font-weight: bold;
-      cursor: pointer;
+      cursor: pointer.
     }
     .btn-cancel { background: #eee; }
     .btn-confirm { background: #ff6b00; color: #fff; }
@@ -337,10 +337,10 @@
     </div>
   </div>
 
-  <!-- Catedral (pollo empanizado + coleslaw) -->
+  <!-- Catedral (imagem trocada para ImgBB conforme solicitado) -->
   <div class="item">
     <img
-      src="https://images.pexels.com/photos/8382493/pexels-photo-8382493.jpeg?auto=compress&cs=tinysrgb&w=1200&h=675&fit=crop"
+      src="https://i.ibb.co/zW7tXvm9/D550-EDEF-7446-45-FB-A01-A-674-B189-B61-E2.png"
       alt="Hamburguesa Catedral"
       referrerpolicy="no-referrer" decoding="async" loading="eager"
       onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22675%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eee%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Segoe%20UI%22 font-size=%2230%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>Imagen%20no%20disponible</text></svg>';"
@@ -369,7 +369,7 @@
     </div>
   </div>
 
-  <!-- Distrito (foto própria RAW do GitHub) -->
+  <!-- Distrito (ImgBB) -->
   <div class="item">
     <img
       src="https://i.ibb.co/d0D1ZNJB/4-A370153-7-FE3-4-E8-A-8-BBD-46-ABAAF7-A391.png"
@@ -433,7 +433,7 @@
     </div>
   </div>
 
-  <!-- ===== Distritinhos (sliders, ImgBB Direct link) ===== -->
+  <!-- ===== Distritinhos (ImgBB) ===== -->
   <div class="item">
     <img
       src="https://i.ibb.co/Qvjkt2d3/269-F9290-45-B7-47-C3-9084-112-B0-B0765-F6.png"
@@ -452,7 +452,7 @@
 
 <h2 class="section-title">🍟 Acompañamientos</h2>
 <div class="container">
-  <!-- Combo upgrade: fritas + soda (ImgBB direct link) -->
+  <!-- Combo upgrade (ImgBB) -->
   <div class="item">
     <img
       src="https://i.ibb.co/Q33MkXBC/9-BB5-D27-E-B729-4635-B3-A8-82-A0-B3-DA5934.png"
@@ -806,11 +806,11 @@
     AGOTADOS.forEach(n => setAgotado(n, true));
   }
 
-  // Mantido (não usado agora, deixo para compatibilidade caso queira voltar a checkboxes)
+  // (Apenas correção da palavra 'marcados' aqui)
   function limitarSelecao(max, cb) {
     const overlay = document.getElementById('distritinhosOverlay');
     const marcados = overlay.querySelectorAll('input[type="checkbox"]:checked');
-    if (m arcados.length > max) {
+    if (marcados.length > max) {
       cb.checked = false;
       alert(`Selecione no máximo ${max} sabores.`);
     }

@@ -184,9 +184,17 @@
       align-items: center;
       gap: 14px;
     }
+    .cart-sidebar .btn-continue {
+      background: #ff6b00;
+      color: white;
+      flex-shrink: 0;
+      margin: 0 auto 16px;
+    }
+    .btn-continue:hover { background: #e65f00; }
+    .btn-continue:focus-visible { outline: 3px solid #2c2c2c; outline-offset: 3px; }
     .btn-clear { background: #ff4d4d; color: white; }
     .btn-order { background: #25d366; color: white; }
-    .btn-clear, .btn-order {
+    .btn-clear, .btn-order, .btn-continue {
       font-size: 16px;
       font-weight: bold;
       padding: 12px;
@@ -557,6 +565,7 @@
 <div class="cart-sidebar" id="cartSidebar">
   <button class="close-btn" onclick="toggleCart()">✖</button>
   <h2>🛒 Tu carrito</h2>
+  <button class="btn-continue" type="button" onclick="seguirAgregando()">← Seguir agregando</button>
   <div id="carrito" class="cart-items"><p>No hay productos aún.</p></div>
   <div class="cart-total" id="carrito-total"></div>
 
@@ -605,6 +614,10 @@
 
   function toggleCart() {
     document.getElementById("cartSidebar").classList.toggle("open");
+  }
+
+  function seguirAgregando() {
+    document.getElementById("cartSidebar").classList.remove("open");
   }
 
   function agregarAlCarrito(nombre, precio) {
